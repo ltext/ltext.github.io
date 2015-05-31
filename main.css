@@ -19,3 +19,7 @@ code {
   padding: 0.1em 0.3em;
   border-radius: 0.2em;
 }
+
+.ui.teal.segment h3.inverted {
+  margin-top: 0.4em !important;
+}
