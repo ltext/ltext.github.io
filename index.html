@@ -1,3 +1,198 @@
+</body>
+
+</html>
+
+<div class="ui masthead segment">
+  <div class="ui page grid">
+    <div class="column">
+      <h1 class="ui header center aligned">
+        <img src="logo/ltext.svg" class="ui small image" onerror="this.onerror=null; this.src='logo/ltext.png'">
+        <div class="content">
+          <h1 class="ui huge header">λtext</h1>
+          <div class="sub header">General-Purpose Templating Utility</h2>
+        </div>
+      </h1>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="ui vertical feature segment">
+  <div class="ui centered page grid">
+    <div class="fourteen wide column">
+      <div class="ui three column center aligned stackable divided grid">
+        <div class="column">
+          <div class="ui icon header">
+            <i class="copy icon"></i>
+            Reduce Duplication
+          </div>
+          <p>Copy-paste is an essential keystroke for anyone using a computer, but when it's
+             overused, it can cause serious maintainability headaches. With λtext, we can
+             parameterize <em>files</em> themselves, and let substitution do the copy-paste'ing for us.
+          </p>
+        </div>
+        <div class="column">
+          <div class="ui icon header">
+            <!-- <i class="ui icon" style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;">λ</i> -->
+            <img src="logo/lambda.png" class="icon" />
+            Built with Precision
+          </div>
+          <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
+             as it's underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - it's
+             <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
+             type system gives us the best of both worlds; <em>polymorphism</em> and <em>correctness</em>.
+          </p>
+        </div>
+        <div class="column">
+          <div class="ui icon header">
+            <i class="github icon"></i>
+            Open Source
+          </div>
+          <p>λtext is BSD Licenced, so you are free to do what you want with the project. It's
+             written in the advanced programming language <a href="http://haskell.org">Haskell</a>,
+             with the code hosted on
+             <a href="https://github.com/ltext/ltext">github</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="ui vertical featured segment">
+  <div class="ui very relaxed stackable page grid divided">
+    <div class="row">
+      <div class="column">
+        <h1 class="center aligned ui header">
+          How To Use It
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eight wide column">
+        <h2 class="ui header">Step 1: Have a Text File</h2>
+        <p>The first thing you need is a text file you want to parameterize. This
+           can be Html, JavaScript, Haskell, Bash, TeX, <em>anything</em>. In this
+           example, we'll use a plantext file <code>foo</code>:
+        </p>
+        <pre>
+Woo hoo! I'm a Text File!
+
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+      </div>
+      <div class="eight wide column">
+        <h2 class="ui header">Step 2: Create a Parameter</h2>
+        <p>Just like lambda calculus, we create arity via <em>abstraction</em> -
+           the act of creating a parameter. In λtext it's very easy - all we need
+           to do is, on the first line, declare our parameters inside <strong>delimiters</strong>.
+           Then, we use those declared variables by referencing their names with
+           <strong>the same delimiters</strong>. We are free to choose the syntax we
+           wish - Jade-style delimiters with <code>{{ }}</code>, Html-friendly
+           delimiters via comments <code>&lt;!-- --></code>, etc. Here's our
+           new and improved <code>foo</code>:
+        </p>
+        <pre>
+$$ x %%
+Woo hoo! I'm a Text File!
+
+$$ x %%
+        </pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eight wide column">
+        <h2 class="ui header">Step 3: Have Another File to Substitute</h2>
+        <p>Now that we have our function/file <code>foo</code>, we need some content
+           to use as it's input. Easy enough, we can just plug in the content we
+           ripped-out into the file <code>bar</code>:
+        </p>
+        <pre>
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+      </div>
+      <div class="eight wide column">
+        <h2 class="ui header">Step 4: Apply the Files/Functions with λtext</h2>
+        <p>Lastly, to use our functions, we must <em>apply</em> one to another -
+           the other counterpart to lambda calculus. To do this, invoke the
+           <code>ltext</code> command from a terminal:
+        </p>
+        <pre>
+$ ltext "foo bar"
+
+Woo hoo! I'm a Text File!
+
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+        <p>Normally, the result of the expression we supply to <code>ltext</code>
+           (ie: the files we wish to apply) just pumps out <code>stdout</code>.
+           But, if that's unwanted, there's a flag for that!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="ui vertical featured segment">
+  <div class="ui stackable center aligned page grid">
+    <div class="row">
+      <div class="column">
+        <h1 class="ui header">
+          Get λtext
+        </h1>
+      </div>
+    </div>
+    <div class="two column row">
+      <div class="column">
+        <div class="ui basic animated button teal">
+          <div class="visible content">64-bit</div>
+          <div class="hidden content"><i class="down arrow icon"></i></div>
+        </div>
+        <div class="ui basic animated button teal">
+          <div class="visible content">32-bit</div>
+          <div class="hidden content"><i class="down arrow icon"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="ui horizontal divider">or</div>
+        <pre>
+cabal install ltext
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui inverted footer vertical segment">
+  <div class="ui stackable center aligned page grid">
+    <div class="row">
+      <div class="column">
+        <h3>Made with <i class="icon heart"></i> by Athan Clark</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,271 +232,4 @@
 
 </head>
 <body id="home">
-
-
-<div class="ui masthead segment">
-  <div class="ui page grid">
-    <div class="column">
-      <h1 class="ui header center aligned">
-        <img src="logo/ltext.svg" class="ui small image" onerror="this.onerror=null; this.src='logo/ltext.png'">
-        <div class="content">
-          <h1 class="ui huge header">λtext</h1>
-          <div class="sub header">General-Purpose Templating Utility</h2>
-        </div>
-      </h1>
-    </div>
-  </div>
-</div>
-<div class="ui vertical feature segment">
-  <div class="ui centered page grid">
-    <div class="fourteen wide column">
-      <div class="ui three column center aligned stackable divided grid">
-        <div class="column">
-          <div class="ui icon header">
-            <i class="copy icon"></i>
-            Reduce Duplication
-          </div>
-          <p>Copy-paste is an essential keystroke for anyone using a computer, but when it's
-             overused, it can cause serious maintainability headaches. With λtext, we can
-             parameterize <em>files</em> themselves, and let substitution do the copy-paste'ing for us.
-          </p>
-        </div>
-        <div class="column">
-          <div class="ui icon header">
-            <!-- <i class="ui icon" style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;">λ</i> -->
-            <img src="logo/lambda.png" class="icon" />
-            Built with Precision
-          </div>
-          <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
-             as it's underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - it's
-             <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
-             type system gives us the best of both worlds; <em>polymorphism</em> and <em>correctness</em>.
-          </p>
-        </div>
-        <div class="column">
-          <div class="ui icon header">
-            <i class="github square icon"></i>
-            Community
-          </div>
-          <p>Get feedback on your cat from a community of loving pet owners on our online bulletin board system.</p>
-          <p>
-            <a class="ui button" href="#">
-              Share
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="ui inverted vertical segment">
-  <div class="ui very relaxed stackable page grid">
-    <div class="row">
-      <div class="column">
-        <h1 class="center aligned ui inverted header">
-          The Best Cat Articles
-        </h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="ten wide column">
-        <h3 class="ui inverted header">How to Win Your Cats Attention</h3>
-        <p>Getting your cat to notice you is a large part of being a pet owner. Although I have a lot of patience for writing things about cats, perhaps this might be enough body copy to make this section of text look filled out.</p>
-        <p>This and other tips can be found in our newsletter, amazing right?</p>
-        <div class="ui basic inverted animated button button">
-          <div class="visible content">Read More</div>
-          <div class="hidden content"><i class="right arrow icon"></i></div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <h3 class="ui inverted header">More articles</h3>
-        <div class="ui inverted animated selection list">
-          <div class="item">
-            How to win in a fight with a cat
-            <div class="right floated">Jan 20, 2023</div>
-          </div>
-          <div class="item">
-            A Supposedly Fun Cat Toy I will Never Buy Again
-            <div class="right floated">Jan 1, 2023</div>
-          </div>
-          <div class="item">
-            Much ado about yarn
-            <div class="right floated">Dec 20, 2022</div>
-          </div>
-        </div>
-      </div>
-      <div class="six wide column">
-        <div class="ui form segment">
-          <h3 class="ui header">Bi-Daily Newsletter</h3>
-          <p>Sign up and get spammed with cats every day. We have no unsubscribe button!</p>
-          <div class="field">
-            <div class="ui left icon action input">
-              <i class="user icon"></i>
-              <input name="email" type="text" placeholder="name@email.com">
-              <div class="ui black submit button">Sign up</div>
-            </div>
-          </div>
-          <div class="ui error message"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="ui vertical segment">
-  <div class="ui stackable center aligned page grid">
-    <div class="row">
-      <div class="column">
-        <h1 class="ui header">
-          Many Companies Rely on Our Cat Knowledge
-        </h1>
-        <div class="ui horizontal divider"><i class="heart icon"></i></div>
-      </div>
-    </div>
-    <div class="four column logo row">
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="active side">
-              <i class="huge github icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge maxcdn icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge pinterest icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge weibo icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flickr icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="side">
-              <i class="huge github icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge facebook icon"></i>
-            </div>
-            <div class="active side">
-              <i class="huge maxcdn icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge pinterest icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge weibo icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flickr icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="side">
-              <i class="huge github icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge maxcdn icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge pinterest icon"></i>
-            </div>
-            <div class="active side">
-              <i class="huge weibo icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flickr icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="side">
-              <i class="huge github icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge maxcdn icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge pinterest icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge weibo icon"></i>
-            </div>
-            <div class="active side">
-              <i class="huge flickr icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="ui inverted footer vertical segment">
-  <div class="ui stackable center aligned page grid">
-    <div class="ten wide column">
-      <div class="ui three column center aligned stackable grid">
-        <div class="column">
-          <h5 class="ui inverted header">Courses</h5>
-          <div class="ui inverted link list">
-            <a class="item">Registration</a>
-            <a class="item">Course Calendar</a>
-            <a class="item">Professors</a>
-          </div>
-        </div>
-        <div class="column">
-          <h5 class="ui inverted header">Library</h5>
-          <div class="ui inverted link list">
-            <a class="item">A-Z</a>
-            <a class="item">Most Popular</a>
-            <a class="item">Recently Changed</a>
-          </div>
-        </div>
-        <div class="column">
-          <h5 class="ui inverted header">Community</h5>
-          <div class="ui inverted link list">
-            <a class="item">BBS</a>
-            <a class="item">Careers</a>
-            <a class="item">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="six wide column">
-      <h5 class="ui inverted header">Contact Us</h5>
-      <addr>
-        237 Catberry Road <br>
-        Milton Keynes, London <br>
-      </addr>
-      <p>(404) 867-5309</p>
-    </div>
-  </div>
-</div>
-
-</body>
-
-</html>
-
 

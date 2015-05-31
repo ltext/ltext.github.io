@@ -1,0 +1,77 @@
+
+<div class="ui vertical featured segment">
+  <div class="ui very relaxed stackable page grid divided">
+    <div class="row">
+      <div class="column">
+        <h1 class="center aligned ui header">
+          How To Use It
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eight wide column">
+        <h2 class="ui header">Step 1: Have a Text File</h2>
+        <p>The first thing you need is a text file you want to parameterize. This
+           can be Html, JavaScript, Haskell, Bash, TeX, <em>anything</em>. In this
+           example, we'll use a plantext file <code>foo</code>:
+        </p>
+        <pre>
+Woo hoo! I'm a Text File!
+
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+      </div>
+      <div class="eight wide column">
+        <h2 class="ui header">Step 2: Create a Parameter</h2>
+        <p>Just like lambda calculus, we create arity via <em>abstraction</em> -
+           the act of creating a parameter. In λtext it's very easy - all we need
+           to do is, on the first line, declare our parameters inside <strong>delimiters</strong>.
+           Then, we use those declared variables by referencing their names with
+           <strong>the same delimiters</strong>. We are free to choose the syntax we
+           wish - Jade-style delimiters with <code>{{ }}</code>, Html-friendly
+           delimiters via comments <code>&lt;!-- --></code>, etc. Here's our
+           new and improved <code>foo</code>:
+        </p>
+        <pre>
+$$ x %%
+Woo hoo! I'm a Text File!
+
+$$ x %%
+        </pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eight wide column">
+        <h2 class="ui header">Step 3: Have Another File to Substitute</h2>
+        <p>Now that we have our function/file <code>foo</code>, we need some content
+           to use as it's input. Easy enough, we can just plug in the content we
+           ripped-out into the file <code>bar</code>:
+        </p>
+        <pre>
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+      </div>
+      <div class="eight wide column">
+        <h2 class="ui header">Step 4: Apply the Files/Functions with λtext</h2>
+        <p>Lastly, to use our functions, we must <em>apply</em> one to another -
+           the other counterpart to lambda calculus. To do this, invoke the
+           <code>ltext</code> command from a terminal:
+        </p>
+        <pre>
+$ ltext "foo bar"
+
+Woo hoo! I'm a Text File!
+
+Here's some content that I /really/
+don't want inside here. Oh well!
+        </pre>
+        <p>Normally, the result of the expression we supply to <code>ltext</code>
+           (ie: the files we wish to apply) just pumps out <code>stdout</code>.
+           But, if that's unwanted, there's a flag for that!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
