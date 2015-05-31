@@ -5,3 +5,10 @@ body {
 pre.inverted {
   color: #fff;
 }
+
+.feature pre {
+  background: #002B41;
+  padding: 1em;
+  color: #fff;
+  border-radius: 1em;
+}

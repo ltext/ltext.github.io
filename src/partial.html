@@ -1,0 +1,22 @@
+
+<div class="row">
+  <div class="column">
+    <h2 class="ui header">Partial Application</h2>
+    <p>
+      Just like lambda calculus, we can partially apply templates to each other.
+      Take our <code>apply</code> template from before - that's a good example
+      to work though. If we apply our <code>foo</code> file from before to
+      <code>apply</code>, we should get a template from <code>Text -> Text</code> -
+      the paramter to <code>foo</code> being unified with the <code>x</code> parameter
+      in <code>apply</code>:
+    </p>
+    <pre>
+$ ltext -t "apply foo"
+
+apply foo :: Text -> Text
+    </pre>
+    <p>
+      It turns out, we can actually render this partially applied template.
+    </p>
+  </div>
+</div>
