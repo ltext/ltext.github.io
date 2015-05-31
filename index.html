@@ -85,7 +85,7 @@
             <i class="github icon"></i>
             Open Source
           </div>
-          <p>λtext is BSD Licenced, so you are free to do what you want with the project. It's
+          <p>λtext is <a href="http://opensource.org/licenses/BSD-2-Clause">BSD Licenced</a>, so you are free to do what you want with the project. It's
              written in the advanced programming language <a href="http://haskell.org">Haskell</a>,
              with the code hosted on
              <a href="https://github.com/ltext/ltext">github</a>.
@@ -199,11 +199,13 @@ don't want inside here. Oh well!</pre>
           </div>
           <div class="row">
             <div class="column">
-              <div class="ui basic inverted vertical animated button teal">
-                <div class="visible content">64-bit</div>
-                <div class="hidden content"><i class="down arrow icon"></i></div>
-              </div>
-              <div class="ui basic inverted vertical animated button teal">
+              <a href="dist/x86_64/ltext">
+                <div class="ui basic inverted vertical animated button teal">
+                  <div class="visible content">64-bit</div>
+                  <div class="hidden content"><i class="down arrow icon"></i></div>
+                </div>
+              </a>
+              <div class="ui basic inverted vertical animated button teal disabled">
                 <div class="visible content">32-bit</div>
                 <div class="hidden content"><i class="down arrow icon"></i></div>
               </div>
@@ -234,7 +236,7 @@ cabal install ltext
         </h1>
         <p>
           There are a few other things to consider when working with λtext -
-          type checking, partial application, and debugging.
+          type checking and partial application.
         </p>
       </div>
     </div>
@@ -294,6 +296,7 @@ apply :: ∀a1. (a1 -> Text) -> a1 -> Text</pre>
 
 <div class="row">
   <div class="column">
+    <div class="divider ui"></div>
     <h2 class="ui header">Partial Application</h2>
     <p>
       Just like lambda calculus, we can partially apply templates to each other.
@@ -342,9 +345,23 @@ Woo hoo! I'm a Text File!
 <div class="ui inverted footer vertical segment">
   <div class="ui stackable center aligned page grid">
     <div class="row">
-      <div class="column">
-        <h3>Made with <i class="icon heart"></i> by Athan Clark</h3>
+      <div class="column four wide">
+        <h3 class="ui header aligned right inverted">Made with</h3>
       </div>
+      <div class="column">
+        <i class="icon heart large"></i>
+      </div>
+      <div class="column four wide">
+        <h3 class="ui header aligned left inverted">by <a href="http://twitter.com/ElAthanator" target="_blank">Athan Clark</a></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="https://en.gravatar.com/userimage/40715861/e67ea744df4e961eb6d7518ba5168b87.jpeg" class="image circular ui centered" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">(he's a bird.)</div>
     </div>
   </div>
 </div>
