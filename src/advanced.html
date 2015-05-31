@@ -1,0 +1,88 @@
+
+<div class="ui vertical featured segment">
+  <div class="ui stackable page grid">
+    <div class="row">
+      <div class="column center aligned">
+        <h1 class="ui header">
+          Advanced Usage
+        </h1>
+        <p>
+          There are a few other things to consider when working with λtext -
+          type checking, partial application, and debugging.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <h2 class="ui header">Type Checking</h2>
+        <p>
+          To inspect the type of a file or an expression, simply include the
+          <code>-t</code> option during invocation:
+        </p>
+        <pre>
+$ ltext "foo" -t
+
+foo :: Text -> Text
+        </pre>
+        <p>
+          You can read this as "foo takes in Text and returns Text", or "foo is a
+          <em>function</em> from Text to Text". This is useful if you are getting
+          type matching errors, or want to get a <em>description</em> of a file. We
+          can also check the type signature of expressions directly:
+        </p>
+        <pre>
+$ ltext "\x -> x" -t
+
+λx. x :: ∀ a0. a0 -> a0
+        </pre>
+        <p>
+          This is a little technical, but we are creating a <strong>polymorphic</strong>
+          function <code>\x -> x</code>, which has a type from <strong>for all a0</strong>
+          to <code>a0</code> (you may see these cryptic type variables instead of <code>Text</code>
+          from time to time). This would happen if, for instance, you made an "apply"-like
+          template:
+        </p>
+        <pre>
+%% f x %%
+
+asdf
+
+%% f x %%
+        </pre>
+        <p>
+          If you check the type of <code>apply</code>, you can see it's...
+        </p>
+        <pre>
+$ ltext -t "apply"
+
+apply :: ∀a0. (a0 -> Text) -> a0 -> Text
+        </pre>
+        <p>
+          Meaning that <code>x</code> can be content of <em>any</em> type, so long
+          as it's the same input as <code>f</code>.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <h2 class="ui header">Partial Application</h2>
+        <p>
+          Just like lambda calculus, we can partially apply templates to each other.
+          Take our <code>apply</code> template from before - that's a good example
+          to work though. If we apply our <code>foo</code> file from before to
+          <code>apply</code>, we should get a template from <code>Text -> Text</code> -
+          the paramter to <code>foo</code> being unified with the <code>x</code> parameter
+          in <code>apply</code>:
+        </p>
+        <pre>
+$ ltext -t "apply foo"
+
+apply foo :: Text -> Text
+        </pre>
+        <p>
+          It turns out, we can actually render this partially applied template.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

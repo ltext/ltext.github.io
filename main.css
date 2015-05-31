@@ -1,3 +1,7 @@
 body {
   background: #002B41;
 }
+
+pre.inverted {
+  color: #fff;
+}
