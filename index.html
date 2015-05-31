@@ -119,8 +119,7 @@
 Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
       </div>
       <div class="eight wide column">
         <h2 class="ui header">Step 2: Create a Parameter</h2>
@@ -137,8 +136,7 @@ don't want inside here. Oh well!
 $$ x %%
 Woo hoo! I'm a Text File!
 
-$$ x %%
-        </pre>
+$$ x %%</pre>
       </div>
     </div>
     <div class="row">
@@ -149,9 +147,13 @@ $$ x %%
            ripped-out into the file <code>bar</code>:
         </p>
         <pre>
+
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
+        <p>
+          Note the empty first line - that way <code>ltext</code> doesn't think
+          some of our words are actually delimiters.
+        </p>
       </div>
       <div class="eight wide column">
         <h2 class="ui header">Step 4: Apply the Files/Functions with λtext</h2>
@@ -160,13 +162,12 @@ don't want inside here. Oh well!
            <code>ltext</code> command from a terminal:
         </p>
         <pre>
-$ ltext "foo bar"
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo bar"</span>
 
 Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
         <p>Normally, the result of the expression we supply to <code>ltext</code>
            (ie: the files we wish to apply) just pumps out <code>stdout</code>.
            But, if that's unwanted, there's a flag for that!
@@ -248,10 +249,9 @@ cabal install ltext
       <code>-t</code> option during invocation:
     </p>
     <pre>
-$ ltext "foo" -t
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo"</span> -t
 
-foo :: Text -> Text
-    </pre>
+foo :: Text -> Text</pre>
     <p>
       You can read this as "foo takes in Text and returns Text", or "foo is a
       <em>function</em> from Text to Text". This is useful if you are getting
@@ -259,10 +259,9 @@ foo :: Text -> Text
       can also check the type signature of expressions directly:
     </p>
     <pre>
-$ ltext "\x -> x" -t
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -> x"</span> -t
 
-λx. x :: ∀ a0. a0 -> a0
-    </pre>
+λx. x :: ∀ a0. a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
       function <code>\x -> x</code>, which has a type from <strong>for all a0</strong>
@@ -275,16 +274,14 @@ $ ltext "\x -> x" -t
 
 asdf
 
-%% f x %%
-    </pre>
+%% f x %%</pre>
     <p>
       If you check the type of <code>apply</code>, you can see it's...
     </p>
     <pre>
-$ ltext -t "apply"
+$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply"</span>
 
-apply :: ∀a0. (a0 -> Text) -> a0 -> Text
-    </pre>
+apply :: ∀a1. (a1 -> Text) -> a1 -> Text</pre>
     <p>
       Meaning that <code>x</code> can be content of <em>any</em> type, so long
       as it's the same input as <code>f</code>.
@@ -307,12 +304,28 @@ apply :: ∀a0. (a0 -> Text) -> a0 -> Text
       in <code>apply</code>:
     </p>
     <pre>
-$ ltext -t "apply foo"
+$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply foo"</span>
 
-apply foo :: Text -> Text
-    </pre>
+apply foo :: Text -> Text</pre>
     <p>
-      It turns out, we can actually render this partially applied template.
+      It turns out, we can actually render this partially applied template, but only if
+      we <strong>explicitly</strong> supply new delimiters for the result:
+    </p>
+    <pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span> --left <span style="color: #E07B53;">"{{"</span> --right <span style="color: #E07B53;">"}}"</span>
+
+{{ x }}
+
+asdf
+
+
+Woo hoo! I'm a Text File!
+
+
+{{ x }}</pre>
+    <p>
+      Sometimes newlines are added (due to the empty first line for files of type <code>Text</code>) -
+      this is unavoidable for now.
     </p>
   </div>
 </div>

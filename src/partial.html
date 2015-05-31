@@ -11,12 +11,28 @@
       in <code>apply</code>:
     </p>
     <pre>
-$ ltext -t "apply foo"
+$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply foo"</span>
 
-apply foo :: Text -> Text
-    </pre>
+apply foo :: Text -> Text</pre>
     <p>
-      It turns out, we can actually render this partially applied template.
+      It turns out, we can actually render this partially applied template, but only if
+      we <strong>explicitly</strong> supply new delimiters for the result:
+    </p>
+    <pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span> --left <span style="color: #E07B53;">"{{"</span> --right <span style="color: #E07B53;">"}}"</span>
+
+{{ x }}
+
+asdf
+
+
+Woo hoo! I'm a Text File!
+
+
+{{ x }}</pre>
+    <p>
+      Sometimes newlines are added (due to the empty first line for files of type <code>Text</code>) -
+      this is unavoidable for now.
     </p>
   </div>
 </div>

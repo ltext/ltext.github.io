@@ -7,10 +7,9 @@
       <code>-t</code> option during invocation:
     </p>
     <pre>
-$ ltext "foo" -t
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo"</span> -t
 
-foo :: Text -> Text
-    </pre>
+foo :: Text -> Text</pre>
     <p>
       You can read this as "foo takes in Text and returns Text", or "foo is a
       <em>function</em> from Text to Text". This is useful if you are getting
@@ -18,10 +17,9 @@ foo :: Text -> Text
       can also check the type signature of expressions directly:
     </p>
     <pre>
-$ ltext "\x -> x" -t
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -> x"</span> -t
 
-λx. x :: ∀ a0. a0 -> a0
-    </pre>
+λx. x :: ∀ a0. a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
       function <code>\x -> x</code>, which has a type from <strong>for all a0</strong>
@@ -34,16 +32,14 @@ $ ltext "\x -> x" -t
 
 asdf
 
-%% f x %%
-    </pre>
+%% f x %%</pre>
     <p>
       If you check the type of <code>apply</code>, you can see it's...
     </p>
     <pre>
-$ ltext -t "apply"
+$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply"</span>
 
-apply :: ∀a0. (a0 -> Text) -> a0 -> Text
-    </pre>
+apply :: ∀a1. (a1 -> Text) -> a1 -> Text</pre>
     <p>
       Meaning that <code>x</code> can be content of <em>any</em> type, so long
       as it's the same input as <code>f</code>.

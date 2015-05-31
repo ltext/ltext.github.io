@@ -19,8 +19,7 @@
 Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
       </div>
       <div class="eight wide column">
         <h2 class="ui header">Step 2: Create a Parameter</h2>
@@ -37,8 +36,7 @@ don't want inside here. Oh well!
 $$ x %%
 Woo hoo! I'm a Text File!
 
-$$ x %%
-        </pre>
+$$ x %%</pre>
       </div>
     </div>
     <div class="row">
@@ -49,9 +47,13 @@ $$ x %%
            ripped-out into the file <code>bar</code>:
         </p>
         <pre>
+
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
+        <p>
+          Note the empty first line - that way <code>ltext</code> doesn't think
+          some of our words are actually delimiters.
+        </p>
       </div>
       <div class="eight wide column">
         <h2 class="ui header">Step 4: Apply the Files/Functions with λtext</h2>
@@ -60,13 +62,12 @@ don't want inside here. Oh well!
            <code>ltext</code> command from a terminal:
         </p>
         <pre>
-$ ltext "foo bar"
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo bar"</span>
 
 Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
-don't want inside here. Oh well!
-        </pre>
+don't want inside here. Oh well!</pre>
         <p>Normally, the result of the expression we supply to <code>ltext</code>
            (ie: the files we wish to apply) just pumps out <code>stdout</code>.
            But, if that's unwanted, there's a flag for that!
