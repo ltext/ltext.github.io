@@ -74,7 +74,7 @@
             Built with Precision
           </div>
           <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
-             as it's underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - it's
+             as its underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - it's
              <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
              type system gives us the best of both worlds; <em>polymorphism</em> and <em>correctness</em>.
              Function application is now our copy-and-paste command.
@@ -309,7 +309,7 @@ cabal update && cabal install ltext</pre>
         </h1>
         <p>
           There are a few other things to consider when working with λtext -
-          type checking and partial application.
+          type checking, partial application, and debugging! *gasp*
         </p>
       </div>
     </div>
@@ -399,8 +399,63 @@ Woo hoo! I'm a Text File!
 </div>
 
 
+
+<div class="row">
+  <div class="column">
+    <div class="divider ui"></div>
+    <h2 class="ui header">Debugging</h2>
+    <p>
+      If you toyed around with the <code>apply</code> function from earlier, you
+      may have seen a daughnting error:
+    </p>
+    <pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
+
+ltext: Error: Result has literals in sub expression - `λf. (#apply) <> (f #bar)` - cannot render soundly.</pre>
+    <p>
+      This is intended! This makes sure that the templates we render are actually
+      <em>renderable</em>.
+    </p>
+    <p>
+      In laymen's terms, a template can only be rendered if <strong>all</strong>
+      <code>Text</code> data that is concatenated (<code>&lt;&gt;</code>) is at the
+      "top level" - if after reducing our expression, we wind up applying text to
+      an unknown function, or applying unknown input to a file, we can't fully
+      substitute the text, and are left with dangling references to files.
+    </p>
+    <p>
+      We can check the type of these expressions, but we can't render them. To
+      help us see what is going on under-the-hood, it's sometimes helpful to
+      "show" the underlying expression:
+    </p>
+    <pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span> --show
+
+λf. (#apply) <> (f #bar) :: (Text -> Text) -> Text</pre>
+    <p>
+      By looking at this type, you can see that we still need a
+      <a href="http://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank">continuation-passing-style</a>
+      function <code>f</code> before we can get our result. Looking at the expression
+      itself, you can see that we're applying the <code>bar</code> file to the
+      unknown function <code>f</code> - therefore we can't substitute it in our result.
+      <blockquote>
+        We prepend file names with <code>#</code> in an attempt to distinguish them
+        from normal terms.
+      </blockquote>
+    </p>
+    <p>
+      So, if you ever get this error, you know that there's something you still need
+      to apply before you can fully render your expression. I hope that clears up
+      some headaches!
+    </p>
   </div>
 </div>
+
+
+  </div>
+</div>
+
+
 
 
 
