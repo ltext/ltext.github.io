@@ -103,7 +103,7 @@
   <div class="ui very relaxed stackable page grid divided">
     <div class="row">
       <div class="column">
-        <h1 class="center aligned ui header">
+        <h1 class="center aligned ui header" id="usage">
           How It Works
         </h1>
       </div>
@@ -184,7 +184,7 @@ don't want inside here. Oh well!</pre>
   <div class="ui stackable center aligned page grid">
     <div class="row">
       <div class="column">
-        <h1 class="ui header orange">
+        <h1 class="ui header orange" id="download">
           Get λtext
         </h1>
       </div>
@@ -304,7 +304,7 @@ cabal update && cabal install ltext</pre>
   <div class="ui stackable page grid">
     <div class="row">
       <div class="column center aligned">
-        <h1 class="ui header">
+        <h1 class="ui header" id="advanced">
           Advanced Usage
         </h1>
         <p>
@@ -317,7 +317,7 @@ cabal update && cabal install ltext</pre>
 
 <div class="row">
   <div class="column">
-    <h2 class="ui header">Type Checking</h2>
+    <h2 class="ui header" id="typechecking">Type Checking</h2>
     <p>
       To inspect the type of a file or an expression, simply include the
       <code>-t</code> option during invocation:
@@ -368,7 +368,7 @@ apply :: ∀ a1. (a1 -> Text) -> a1 -> Text</pre>
 <div class="row">
   <div class="column">
     <div class="divider ui"></div>
-    <h2 class="ui header">Partial Application</h2>
+    <h2 class="ui header" id="partial">Partial Application</h2>
     <p>
       Just like lambda calculus, we can partially apply templates to each other.
       Take our <code>apply</code> template from before - that's a good example
@@ -403,7 +403,7 @@ Woo hoo! I'm a Text File!
 <div class="row">
   <div class="column">
     <div class="divider ui"></div>
-    <h2 class="ui header">Debugging</h2>
+    <h2 class="ui header" id="debugging">Debugging</h2>
     <p>
       If you toyed around with the <code>apply</code> function from earlier, you
       may have seen a daughnting error:
