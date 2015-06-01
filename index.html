@@ -9,13 +9,13 @@
   <!-- Site Properities -->
   <title>λtext - General Purpose Templates</title>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/ltext/ltext.github.io/master/semantic.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="semantic.min.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/ltext/ltext.github.io/master/semantic.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="semantic.min.css" />
   <link rel="stylesheet" type="text/css" href="main.css" />
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-  <script src="https://cdn.rawgit.com/ltext/ltext.github.io/master/semantic.min.js"></script>
-  <!-- <script src="semantic.min.js"></script> -->
+  <!-- <script src="https://cdn.rawgit.com/ltext/ltext.github.io/master/semantic.min.js"></script> -->
+  <script src="semantic.min.js"></script>
 
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -270,7 +270,7 @@ sudo apt-get install haskell-platform</pre>
         <pre class="inverted">
 echo "export PATH=$PATH:$HOME/.cabal/bin" >> ~/.bashrc && source ~/.bashrc</pre>
         <pre class="inverted">
-cabal install ltext</pre>
+cabal update && cabal install ltext</pre>
       </div>
     </div>
     <div class="row">
@@ -374,7 +374,7 @@ apply :: ∀ a1. (a1 -> Text) -> a1 -> Text</pre>
       Take our <code>apply</code> template from before - that's a good example
       to work though. If we apply our <code>foo</code> file from before to
       <code>apply</code>, we should get a template from <code>Text -> Text</code> -
-      the paramter to <code>foo</code> being unified with the <code>x</code> parameter
+      the parameter to <code>foo</code> being unified with the <code>x</code> parameter
       in <code>apply</code>:
     </p>
     <pre>
