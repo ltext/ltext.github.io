@@ -32,3 +32,8 @@ blockquote {
   background: #ddd;
   color: #555;
 }
+
+blockquote code {
+  background: #555;
+  color: #fff;
+}
