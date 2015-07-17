@@ -45,7 +45,7 @@
         <img src="logo/ltext.svg" class="ui small image" onerror="this.onerror=null; this.src='logo/ltext.png'">
         <div class="content">
           <h1 class="ui huge header">λtext</h1>
-          <div class="sub header">General-Purpose Templating Utility</h2>
+          <div class="sub header">General-Purpose Text-File Templating Utility</h2>
         </div>
       </h1>
     </div>
@@ -60,24 +60,26 @@
         <div class="column">
           <div class="ui icon header">
             <i class="copy icon"></i>
-            Reduce Duplication
+            Reduce Content Duplication
           </div>
-          <p>The Copy-paste command is an essential for anyone using a computer. However,
-             every time you use it, you need to <em>manually</em> duplicate the data.
-             With λtext, you can parameterize <strong>files</strong> themselves.
+          <p>λtext is a generic <code>import</code> tool for <strong>any</strong> text file, as an alternative
+             to copy-paste. Why? Every time you <code>C-c</code> <code>C-v</code>, you <em>manually</em>
+             duplicate the data. As soon as a change is
+             needed, you have to edit <strong>every file</strong> you've touched.
+             With λtext, you parameterize the <em>files themselves</em>, and let λtext do the pasting.
           </p>
         </div>
         <div class="column">
           <div class="ui icon header">
             <!-- <i class="ui icon" style="font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;">λ</i> -->
             <img src="logo/lambda.png" class="icon" />
-            Built with Precision
+            Built for Precision
           </div>
           <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
-             as its underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - it's
+             as the underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - its
              <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
-             type system gives us the best of both worlds; <em>polymorphism</em> and <em>correctness</em>.
-             Function application is now our copy-and-paste command.
+             type system gives us both <em>polymorphism</em> and <em>correctness</em>; generic templates that seamlessly
+             fit.
           </p>
         </div>
         <div class="column">
@@ -110,25 +112,22 @@
     </div>
     <div class="row">
       <div class="eight wide column">
-        <h2 class="ui header">Step 1: Have a Text File</h2>
-        <p>The first thing you need is a text file you want to parameterize. This
-           can be Html, JavaScript, Haskell, Bash, TeX, <em>anything</em>. In this
+        <h2 class="ui header">1. Have a Text File</h2>
+        <p>You will first need a text file to parameterize. This
+           can be Html, JavaScript, Haskell, Bash, LaTeX, <em>anything</em>. In our
            example, we'll use a plaintext file <code>foo</code>:
         </p>
         <pre>
-Woo hoo! I'm a Text File!
-
-Here's some content that I /really/
-don't want inside here. Oh well!</pre>
+Woo hoo! I'm a Text File!</pre>
       </div>
       <div class="eight wide column">
-        <h2 class="ui header">Step 2: Create a Parameter</h2>
-        <p>Just like lambda calculus, we create arity via <em>abstraction</em> -
-           the act of creating a parameter. In λtext it's very easy - all we need
-           to do is, on the first line, declare our parameters inside <strong>delimiters</strong>.
-           Then, we use those declared variables by referencing their names with
-           <strong>the same delimiters</strong>. We are free to choose the syntax we
-           wish - Jade-style delimiters with <code>{{ }}</code>, Html-friendly
+        <h2 class="ui header">2. Create a Parameter</h2>
+        <p>Just like lambda calculus, we create arity with <em>abstraction</em> -
+           the act of creating a parameter. In λtext, we need to declare our parameters
+           on the first line, inside <strong>delimiters</strong>.
+           We then use those parameters by referencing their names, using
+           the same delimiters. We are free to choose whatever syntax we
+           want - Jade-style delimiters with <code>{{ ... }}</code>, Html-friendly
            delimiters via comments <code>&lt;!-- --></code>, etc. Here's our
            new and improved <code>foo</code>:
         </p>
@@ -142,25 +141,24 @@ $$ x %%</pre>
     <div class="ui divider"></div>
     <div class="row">
       <div class="eight wide column">
-        <h2 class="ui header">Step 3: Have Another File to Substitute</h2>
-        <p>Now that we have our function/file <code>foo</code>, we need some content
-           to use as it's input. Easy enough, we can just plug in the content we
-           ripped-out into the file <code>bar</code>:
+        <h2 class="ui header">3. Use Another File as Input</h2>
+        <p>Now that we have our function/file <code>foo :: Text -> Text</code>,
+           we need some content to plug-in. Here's another file <code>bar</code>:
         </p>
         <pre>
 
 Here's some content that I /really/
-don't want inside here. Oh well!</pre>
+want inside `foo`!</pre>
         <p>
-          Note the empty first line - that way <code>ltext</code> doesn't think
-          some of our words are actually delimiters.
+          Note the empty first line - we don't want <code>ltext</code> to think
+          some of our words are actually delimiters or parameters.
         </p>
       </div>
       <div class="eight wide column">
-        <h2 class="ui header">Step 4: Apply the Files/Functions with λtext</h2>
-        <p>Lastly, to use our functions, we must <em>apply</em> one to another -
-           the other counterpart to lambda calculus. To do this, invoke the
-           <code>ltext</code> command from a terminal:
+        <h2 class="ui header">4. Apply the Files/Functions with λtext</h2>
+        <p>To use our function/files, we must <em>apply</em> them to one another -
+           application is the other counterpart to lambda calculus. To do this, invoke the
+           <code>ltext</code> executable from a terminal:
         </p>
         <pre>
 $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo bar"</span>
@@ -168,10 +166,9 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo 
 Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
-don't want inside here. Oh well!</pre>
-        <p>Normally, the result of the expression we supply to <code>ltext</code>
-           (ie: the files we wish to apply) just pumps out <code>stdout</code>.
-           But, if that's unwanted, there's a flag for that!
+want inside `foo`!</pre>
+        <p>Normally, the result of the expression gets pumped out <code>stdout</code>.
+           But, if that's unwanted, there's a flag for that! <code>-o</code>.
         </p>
       </div>
     </div>
@@ -263,15 +260,12 @@ don't want inside here. Oh well!</pre>
     <div class="row">
       <div class="column">
         <div class="ui horizontal divider inverted">or</div>
+        <p style="color: #fff">Get <a href="https://github.com/commercialhaskell/stack#how-to-install">Stack</a></p>
         <pre class="inverted">
-sudo apt-get install haskell-platform</pre>
-        <pre class="inverted">
-echo "export PATH=$PATH:$HOME/.cabal/bin" >> ~/.bashrc && source ~/.bashrc</pre>
-        <pre class="inverted">
-cabal update && cabal install ltext</pre>
+stack install ltext</pre>
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="column six wide">
         <div class="ui teal inverted segment feature grid">
           <div class="row">
@@ -292,7 +286,7 @@ cabal update && cabal install ltext</pre>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -307,7 +301,7 @@ cabal update && cabal install ltext</pre>
         </h1>
         <p>
           There are a few other things to consider when working with λtext -
-          type checking, partial application, and debugging! *gasp*
+          type checking, partial application, and... debugging! <strong>*gasp*</strong>
         </p>
       </div>
     </div>
@@ -317,7 +311,7 @@ cabal update && cabal install ltext</pre>
   <div class="column">
     <h2 class="ui header" id="typechecking">Type Checking</h2>
     <p>
-      To inspect the type of a file or an expression, simply include the
+      To inspect the type of a file or an expression, just use the
       <code>-t</code> option during invocation:
     </p>
     <pre>
@@ -336,7 +330,7 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -
 λx. x :: ∀ a0. a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
-      function <code>\x -> x</code>, which has a type from <strong>for all a0</strong>
+      function <code>\x -> x</code>, which has a type from <strong>for all</strong> <code>a0</code>
       to <code>a0</code> (you may see these cryptic type variables instead of <code>Text</code>
       from time to time). This would happen if, for instance, you made an "apply"-like
       template:

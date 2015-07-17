@@ -3,7 +3,7 @@
   <div class="column">
     <h2 class="ui header" id="typechecking">Type Checking</h2>
     <p>
-      To inspect the type of a file or an expression, simply include the
+      To inspect the type of a file or an expression, just use the
       <code>-t</code> option during invocation:
     </p>
     <pre>
@@ -22,7 +22,7 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -
 λx. x :: ∀ a0. a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
-      function <code>\x -> x</code>, which has a type from <strong>for all a0</strong>
+      function <code>\x -> x</code>, which has a type from <strong>for all</strong> <code>a0</code>
       to <code>a0</code> (you may see these cryptic type variables instead of <code>Text</code>
       from time to time). This would happen if, for instance, you made an "apply"-like
       template:
