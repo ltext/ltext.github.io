@@ -9,8 +9,9 @@
     </p>
     <pre>
 $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
-
-ltext: Error: Result has literals in sub expression - `λf. (#apply) <> (f #bar)` - cannot render soundly.</pre>
+[Print Error] Can't print textual data while residually inside an expression:
+Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
+  (Abs "that" (Abs "I" (Lit ["###"])))))))</pre>
     <p>
       This is intended! This makes sure that the templates we render are actually
       <em>renderable</em>.
@@ -23,24 +24,10 @@ ltext: Error: Result has literals in sub expression - `λf. (#apply) <> (f #bar)
       substitute the text, and are left with dangling references to files.
     </p>
     <p>
-      We can check the type of these expressions, but we can't render them. To
-      help us see what is going on under-the-hood, it's sometimes helpful to
-      "show" the underlying expression:
-    </p>
-    <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span> --show
-
-λf. (#apply) <> (f #bar) :: (Text -> Text) -> Text</pre>
-    <p>
-      By looking at this type, you can see that we still need a
-      <a href="http://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank">continuation-passing-style</a>
-      function <code>f</code> before we can get our result. Looking at the expression
-      itself, you can see that we're applying the <code>bar</code> file to the
-      unknown function <code>f</code> - therefore we can't substitute it in our result.
-      <blockquote>
-        <strong>Note:</strong> We prepend file names with <code>#</code> in an attempt
-        to distinguish them from normal terms.
-      </blockquote>
+      We can check the type of these expressions, but we can't render them. This
+      process will improve in the future, but for now just make sure `ltext` is used
+      to concatenate files completely, and not expect partial application to
+      "just work".
     </p>
     <p>
       So, if you ever get this error, you know that there's something you still need

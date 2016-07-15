@@ -7,7 +7,7 @@
       <code>-t</code> option during invocation:
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo"</span> -t
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"foo"</span>
 
 foo :: Text -> Text</pre>
     <p>
@@ -17,13 +17,14 @@ foo :: Text -> Text</pre>
       can also check the type signature of expressions directly:
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -> x"</span> -t
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"\x -> x"</span>
 
-λx. x :: ∀ a0. a0 -> a0</pre>
+a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
-      function <code>\x -> x</code>, which has a type from <strong>for all</strong> <code>a0</code>
-      to <code>a0</code> (you may see these cryptic type variables instead of <code>Text</code>
+      function <code>\x -> x</code>, which has a type from <strong>for all</strong>
+      <code>a0</code> to <code>a0</code> (you may see these cryptic type variables
+      instead of <code>Text</code>
       from time to time). This would happen if, for instance, you made an "apply"-like
       template:
     </p>
@@ -37,9 +38,9 @@ asdf
       If you check the type of <code>apply</code>, you can see it's...
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply"</span>
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply"</span>
 
-apply :: ∀ a1. (a1 -> Text) -> a1 -> Text</pre>
+(a1 -> Text) -> a1 -> Text</pre>
     <p>
       Meaning that <code>x</code> can be content of <em>any</em> type, so long
       as it's the same input as <code>f</code>.

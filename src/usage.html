@@ -1,4 +1,3 @@
-
 <div class="ui vertical feature segment">
   <div class="ui very relaxed stackable page grid divided">
     <div class="row">
@@ -49,7 +48,9 @@ Here's some content that I /really/
 want inside `foo`!</pre>
         <p>
           Note the empty first line - we don't want <code>ltext</code> to think
-          some of our words are actually delimiters or parameters.
+          some of our words are actually delimiters or parameters. Optionally, we
+          could designate this file as "raw" with the <code>--raw "bar"</code>
+          flag.
         </p>
       </div>
       <div class="eight wide column">
@@ -65,8 +66,9 @@ Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
 want inside `foo`!</pre>
-        <p>Normally, the result of the expression gets pumped out <code>stdout</code>.
-           But, if that's unwanted, there's a flag for that! <code>-o</code>.
+        <p>The result expression / file text gets pumped out <code>stdout</code>.
+           If there's some residual text left in an inner expression, though,
+           the result will be unprintable and an exception is thrown.
         </p>
       </div>
     </div>

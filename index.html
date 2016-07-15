@@ -37,7 +37,6 @@
 
 </head>
 <body id="home">
-
 <div class="ui masthead segment">
   <div class="ui page grid">
     <div class="column">
@@ -52,7 +51,6 @@
   </div>
 </div>
 
-
 <div class="ui vertical feature segment">
   <div class="ui centered page grid">
     <div class="fourteen wide column">
@@ -62,11 +60,13 @@
             <i class="copy icon"></i>
             Reduce Content Duplication
           </div>
-          <p>λtext is a generic <code>import</code> tool for <strong>any</strong> text file, as an alternative
-             to copy-paste. Why? Every time you <code>C-c</code> <code>C-v</code>, you <em>manually</em>
+          <p>λtext is a generic <code>import</code> tool for <strong>any</strong>
+             text file, as an alternative to copy-paste. Why? Every time you
+             <code>C-c</code> <code>C-v</code>, you <em>manually</em>
              duplicate the data. As soon as a change is
              needed, you have to edit <strong>every file</strong> you've touched.
-             With λtext, you parameterize the <em>files themselves</em>, and let λtext do the pasting.
+             With λtext, you parameterize the <em>files themselves</em>, and let
+             λtext do the pasting.
           </p>
         </div>
         <div class="column">
@@ -76,10 +76,11 @@
             Built for Precision
           </div>
           <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
-             as the underlying engine, λtext features both <strong>generality</strong> and <strong>precision</strong> - its
+             as the underlying engine, λtext features both <strong>generality</strong>
+             and <strong>precision</strong> - its
              <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
-             type system gives us both <em>polymorphism</em> and <em>correctness</em>; generic templates that seamlessly
-             fit.
+             type system gives us both <em>polymorphism</em> and <em>correctness</em>;
+             generic templates that seamlessly fit.
           </p>
         </div>
         <div class="column">
@@ -88,18 +89,16 @@
             Open Source
           </div>
           <p>λtext is <a href="http://opensource.org/licenses/BSD-2-Clause" target="_blank">BSD Licenced</a> - you are free
-             to do what you want with the project. It's
-             written in the advanced programming language <a href="http://haskell.org" target="_blank">Haskell</a>,
+             to do what you want with the project. It's written in the advanced
+             programming language <a href="http://haskell.org" target="_blank">Haskell</a>,
              with its code available on
-             <a href="https://github.com/ltext/ltext" target="_blank">github</a>. Total lines of code? 978.
+             <a href="https://github.com/ltext/ltext" target="_blank">github</a>. Total lines of code? 972.
           </p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <div class="ui vertical feature segment">
   <div class="ui very relaxed stackable page grid divided">
@@ -151,7 +150,9 @@ Here's some content that I /really/
 want inside `foo`!</pre>
         <p>
           Note the empty first line - we don't want <code>ltext</code> to think
-          some of our words are actually delimiters or parameters.
+          some of our words are actually delimiters or parameters. Optionally, we
+          could designate this file as "raw" with the <code>--raw "bar"</code>
+          flag.
         </p>
       </div>
       <div class="eight wide column">
@@ -167,15 +168,14 @@ Woo hoo! I'm a Text File!
 
 Here's some content that I /really/
 want inside `foo`!</pre>
-        <p>Normally, the result of the expression gets pumped out <code>stdout</code>.
-           But, if that's unwanted, there's a flag for that! <code>-o</code>.
+        <p>The result expression / file text gets pumped out <code>stdout</code>.
+           If there's some residual text left in an inner expression, though,
+           the result will be unprintable and an exception is thrown.
         </p>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <div class="ui vertical segment">
   <div class="ui stackable center aligned page grid">
@@ -290,8 +290,6 @@ stack install ltext</pre>
   </div>
 </div>
 
-
-
 <div class="ui vertical feature segment">
   <div class="ui stackable page grid">
     <div class="row">
@@ -315,7 +313,7 @@ stack install ltext</pre>
       <code>-t</code> option during invocation:
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo"</span> -t
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"foo"</span>
 
 foo :: Text -> Text</pre>
     <p>
@@ -325,13 +323,14 @@ foo :: Text -> Text</pre>
       can also check the type signature of expressions directly:
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\x -> x"</span> -t
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"\x -> x"</span>
 
-λx. x :: ∀ a0. a0 -> a0</pre>
+a0 -> a0</pre>
     <p>
       This is a little technical, but we are creating a <strong>polymorphic</strong>
-      function <code>\x -> x</code>, which has a type from <strong>for all</strong> <code>a0</code>
-      to <code>a0</code> (you may see these cryptic type variables instead of <code>Text</code>
+      function <code>\x -> x</code>, which has a type from <strong>for all</strong>
+      <code>a0</code> to <code>a0</code> (you may see these cryptic type variables
+      instead of <code>Text</code>
       from time to time). This would happen if, for instance, you made an "apply"-like
       template:
     </p>
@@ -345,16 +344,15 @@ asdf
       If you check the type of <code>apply</code>, you can see it's...
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply"</span>
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply"</span>
 
-apply :: ∀ a1. (a1 -> Text) -> a1 -> Text</pre>
+(a1 -> Text) -> a1 -> Text</pre>
     <p>
       Meaning that <code>x</code> can be content of <em>any</em> type, so long
       as it's the same input as <code>f</code>.
     </p>
   </div>
 </div>
-
 
 
 <div class="row">
@@ -370,9 +368,9 @@ apply :: ∀ a1. (a1 -> Text) -> a1 -> Text</pre>
       in <code>apply</code>:
     </p>
     <pre>
-$ <span style="color: #00AD9C;">ltext</span> -t <span style="color: #E07B53;">"apply foo"</span>
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply foo"</span>
 
-apply foo :: Text -> Text</pre>
+Text -> Text</pre>
     <p>
       It turns out, we can actually render this partially applied template, but only if
       we <strong>explicitly</strong> supply new delimiters for the result:
@@ -391,7 +389,6 @@ Woo hoo! I'm a Text File!
 </div>
 
 
-
 <div class="row">
   <div class="column">
     <div class="divider ui"></div>
@@ -402,8 +399,9 @@ Woo hoo! I'm a Text File!
     </p>
     <pre>
 $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
-
-ltext: Error: Result has literals in sub expression - `λf. (#apply) <> (f #bar)` - cannot render soundly.</pre>
+[Print Error] Can't print textual data while residually inside an expression:
+Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
+  (Abs "that" (Abs "I" (Lit ["###"])))))))</pre>
     <p>
       This is intended! This makes sure that the templates we render are actually
       <em>renderable</em>.
@@ -416,24 +414,10 @@ ltext: Error: Result has literals in sub expression - `λf. (#apply) <> (f #bar)
       substitute the text, and are left with dangling references to files.
     </p>
     <p>
-      We can check the type of these expressions, but we can't render them. To
-      help us see what is going on under-the-hood, it's sometimes helpful to
-      "show" the underlying expression:
-    </p>
-    <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span> --show
-
-λf. (#apply) <> (f #bar) :: (Text -> Text) -> Text</pre>
-    <p>
-      By looking at this type, you can see that we still need a
-      <a href="http://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank">continuation-passing-style</a>
-      function <code>f</code> before we can get our result. Looking at the expression
-      itself, you can see that we're applying the <code>bar</code> file to the
-      unknown function <code>f</code> - therefore we can't substitute it in our result.
-      <blockquote>
-        <strong>Note:</strong> We prepend file names with <code>#</code> in an attempt
-        to distinguish them from normal terms.
-      </blockquote>
+      We can check the type of these expressions, but we can't render them. This
+      process will improve in the future, but for now just make sure `ltext` is used
+      to concatenate files completely, and not expect partial application to
+      "just work".
     </p>
     <p>
       So, if you ever get this error, you know that there's something you still need
@@ -443,16 +427,8 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -
   </div>
 </div>
 
-
   </div>
 </div>
-
-
-
-
-
-
-
 
 <div class="ui inverted footer vertical segment">
   <div class="ui stackable center aligned page grid">
@@ -482,20 +458,12 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -
           </a>
         </div>
         <div class="ui inverted divider"></div>
-        Copyright &copy; Athan Clark, 2015
+        Copyright &copy Athan Clark; 2015, 2016, released under the
+        <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
   <script type="text/javascript">
     setTimeout(function(){var a=document.createElement("script");
     var b=document.getElementsByTagName("script")[0];
@@ -514,5 +482,3 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -
 </body>
 
 </html>
-
-
