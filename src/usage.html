@@ -22,11 +22,11 @@ Woo hoo! I'm a Text File!</pre>
         <p>Just like lambda calculus, we create arity with <em>abstraction</em> -
            the act of creating a parameter. In λtext, we need to declare our parameters
            on the first line, inside <strong>delimiters</strong>.
-           We then use those parameters by referencing their names, using
+           Those parameters are later used within
            the same delimiters. We are free to choose whatever syntax we
-           want - Jade-style delimiters with <code>{{ ... }}</code>, Html-friendly
-           delimiters via comments <code>&lt;!-- --></code>, etc. Here's our
-           new and improved <code>foo</code>:
+           want - Jade-style delimiters a 'la <code>{{ ... }}</code>, Html-friendly
+            delimiters via comments <code>&lt;!-- --></code>, etc. Here's an example
+            <em>parametric</em> <code>foo</code>:
         </p>
         <pre>
 $$ x %%
@@ -67,8 +67,6 @@ Woo hoo! I'm a Text File!
 Here's some content that I /really/
 want inside `foo`!</pre>
         <p>The result expression / file text gets pumped out <code>stdout</code>.
-           If there's some residual text left in an inner expression, though,
-           the result will be unprintable and an exception is thrown.
         </p>
       </div>
     </div>
