@@ -58,15 +58,15 @@
         <div class="column">
           <div class="ui icon header">
             <i class="copy icon"></i>
-            Reduce Content Duplication
+            Reduce Duplication
           </div>
-          <p>λtext is a generic <code>import</code> tool for <strong>any</strong>
-             text file, as an alternative to copy-paste. Why? Every time you
-             <code>C-c</code> <code>C-v</code>, you <em>manually</em>
-             duplicate the data. As soon as a change is
-             needed, you have to edit <strong>every file</strong> you've touched.
-             With λtext, you parameterize the <em>files themselves</em>, and let
-             λtext do the pasting.
+          <p>λtext is a generic templating tool for <strong>any</strong>
+              text file. For languages that don't support <code>import</code>-style
+              code-reuse, it's common to just copy/paste. However, after a change is
+              needed, that change must be replicated manually to
+              <strong>every file</strong> needing it.
+              With λtext, you <strong>parameterize the <em>files themselves</em></strong>, and let
+              λtext do the pasting.
           </p>
         </div>
         <div class="column">
@@ -92,7 +92,7 @@
              to do what you want with the project. It's written in the advanced
              programming language <a href="http://haskell.org" target="_blank">Haskell</a>,
              with its code available on
-             <a href="https://github.com/ltext/ltext" target="_blank">github</a>. Total lines of code? 972.
+             <a href="https://github.com/ltext/ltext" target="_blank">github</a>.
           </p>
         </div>
       </div>
@@ -124,11 +124,11 @@ Woo hoo! I'm a Text File!</pre>
         <p>Just like lambda calculus, we create arity with <em>abstraction</em> -
            the act of creating a parameter. In λtext, we need to declare our parameters
            on the first line, inside <strong>delimiters</strong>.
-           We then use those parameters by referencing their names, using
+           Those parameters are later used within
            the same delimiters. We are free to choose whatever syntax we
-           want - Jade-style delimiters with <code>{{ ... }}</code>, Html-friendly
-           delimiters via comments <code>&lt;!-- --></code>, etc. Here's our
-           new and improved <code>foo</code>:
+           want - Jade-style delimiters a 'la <code>{{ ... }}</code>, Html-friendly
+            delimiters via comments <code>&lt;!-- --></code>, etc. Here's an example
+            <em>parametric</em> <code>foo</code>:
         </p>
         <pre>
 $$ x %%
@@ -169,8 +169,6 @@ Woo hoo! I'm a Text File!
 Here's some content that I /really/
 want inside `foo`!</pre>
         <p>The result expression / file text gets pumped out <code>stdout</code>.
-           If there's some residual text left in an inner expression, though,
-           the result will be unprintable and an exception is thrown.
         </p>
       </div>
     </div>
@@ -421,8 +419,7 @@ Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
     </p>
     <p>
       So, if you ever get this error, you know that there's something you still need
-      to apply before you can fully render your expression. I hope that clears up
-      some headaches!
+      to apply before you can fully render your expression.
     </p>
   </div>
 </div>
@@ -433,33 +430,9 @@ Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
 <div class="ui inverted footer vertical segment">
   <div class="ui stackable center aligned page grid">
     <div class="row">
-      <div class="column four wide">
-        <h3 class="ui header aligned right inverted">Made with</h3>
-      </div>
       <div class="column">
-        <i class="icon heart large"></i>
-      </div>
-      <div class="column four wide">
-        <h3 class="ui header aligned left inverted">by <a href="http://twitter.com/athan__" target="_blank">Athan Clark</a></h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <a href="http://twitter.com/athan__" target="_blank" class="ui medium image">
-          <img src="https://en.gravatar.com/userimage/40715861/e67ea744df4e961eb6d7518ba5168b87.jpeg" class="image circular ui centered" />
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="ui pointing label teal">
-          <a href="http://twitter.com/athan__" target="_blank">
-            Squak!
-          </a>
-        </div>
-        <div class="ui inverted divider"></div>
-        Copyright &copy Athan Clark; 2015, 2016, released under the
-        <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
+        Copyright &copy Athan Clark; 2014 - 2023 released under the
+        <a href="https://github.com/ltext/ltext/blob/master/LICENSE" target="_blank">BSD 3-Clause License</a>.
       </div>
     </div>
   </div>
