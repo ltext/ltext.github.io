@@ -1,4 +1,4 @@
-<div class="ui vertical segment">
+<div class="ui vertical segment" id="downloads">
   <div class="ui stackable center aligned page grid">
     <div class="row">
       <div class="column">
@@ -17,18 +17,10 @@
           </div>
           <div class="row">
             <div class="column">
-              <a href="dist/x86_64/linux/ltext">
-                <div class="ui basic inverted vertical animated button teal">
-                  <div class="visible content">64-bit</div>
-                  <div class="hidden content"><i class="down arrow icon"></i></div>
-                </div>
-              </a>
-              <a href="dist/x86/linux/ltext">
-                <div class="ui basic inverted vertical animated button teal disabled">
-                  <div class="visible content">32-bit</div>
-                  <div class="hidden content"><i class="down arrow icon"></i></div>
-                </div>
-              </a>
+                <!-- linux downloads -->
+                <a href="https://snapcraft.io/ltext">
+                    <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-white.svg" />
+                </a>
             </div>
           </div>
         </div>
@@ -42,12 +34,8 @@
           </div>
           <div class="row">
             <div class="column">
-              <a href="dist/x86_64/osx/ltext">
-                <div class="ui basic inverted vertical animated button teal disabled">
-                  <div class="visible content">64-bit</div>
-                  <div class="hidden content"><i class="down arrow icon"></i></div>
-                </div>
-              </a>
+                <!-- osx downloads -->
+                <em>None yet - <a href="#build-from-source">Build From Source</a></em>
             </div>
           </div>
         </div>
@@ -61,52 +49,26 @@
           </div>
           <div class="row">
             <div class="column">
-              <!-- <a href="dist/x86_64/ltext"> -->
-                <div class="ui basic inverted vertical animated button teal disabled">
-                  <div class="visible content">64-bit</div>
-                  <div class="hidden content"><i class="down arrow icon"></i></div>
-                </div>
-              <!-- </a> -->
-              <a href="dist/x86/windows/ltext.exe">
-                <div class="ui basic inverted vertical animated button teal disabled">
-                  <div class="visible content">32-bit</div>
-                  <div class="hidden content"><i class="down arrow icon"></i></div>
-                </div>
-              </a>
+                <!-- windows downloads -->
+                <em>None yet - <a href="#build-from-source">Build From Source</a></em>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="column">
-        <div class="ui horizontal divider inverted">or</div>
-        <p style="color: #fff">Get <a href="https://github.com/commercialhaskell/stack#how-to-install">Stack</a></p>
-        <pre class="inverted">
-stack install ltext</pre>
-      </div>
-    </div>
-    <!-- <div class="row">
-      <div class="column six wide">
-        <div class="ui teal inverted segment feature grid">
-          <div class="row">
-            <div class="column ten wide ui">
-              <h3 class="ui header inverted floated right">Want more support?</h3>
-            </div>
-            <div class="column six wide ui aligned right">
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="2EBY3U5VRXTNN">
-                <button type="submit" class="ui button labeled icon orange">
-                  <i class="paypal icon large" name="submit"></i>
-                  Donate!
-                </button>
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-              </form>
-            </div>
-          </div>
+        <div class="column">
+            <div class="ui horizontal divider inverted">or</div>
+            <h2 class="ui header" style="color: #fff" id="build-from-source">Build from source</h2>
+            <ol class="ui list">
+                <li>
+                    Get <a href="https://github.com/commercialhaskell/stack#how-to-install">Stack</a>
+                </li>
+                <li>
+                    <code>stack install ltext</code>
+                </li>
+            </ol>
         </div>
-      </div>
-    </div> -->
+    </div>
   </div>
 </div>
