@@ -25,7 +25,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="10.552603"
-     inkscape:cx="10.281823"
+     inkscape:cx="7.6758312"
      inkscape:cy="27.670898"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
@@ -41,6 +41,9 @@
     <path
        id="path340"
        style="fill:#000000;fill-opacity:0.87;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 15.017578,-2.5820312 0.671875,-2.4296875 22.324219,28.867188 -0.15820312,60.644531 14.828125,60.976562 29.609375,39.396484 44.570312,61.019531 59.347656,60.839844 Z" />
+       d="M 15.017578,-2.5820312 0.671875,-2.4296875 22.324219,28.867188 -0.15820312,60.644531 14.828125,60.976562 29.609375,39.396484 44.570312,61.019531 59.347656,60.839844 Z"
+       inkscape:export-filename="/home/athan/dev/ltext.github.io/logo/lambda.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
