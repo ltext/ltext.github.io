@@ -1,0 +1,18 @@
+{
+  "name": "ltext.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Athan Clark <athan.clark@gmail.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "@picocss/pico": "^1.5.10"
+  },
+  "devDependencies": {
+    "css-minify": "^2.0.0",
+    "sass": "^1.69.5"
+  }
+}

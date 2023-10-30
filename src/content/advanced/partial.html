@@ -1,0 +1,33 @@
+<header>
+    <h2 id="partial">Partial Application</h2>
+</header>
+
+<p>
+    Just like lambda calculus, we can partially apply templates to each other.
+    Take our <code>apply</code> template from before - that's a good example
+    to work though. If we apply our <code>foo</code> file from before to
+    <code>apply</code>, we should get a template from <code>Text -> Text</code> -
+    the parameter to <code>foo</code> being unified with the <code>x</code> parameter
+    in <code>apply</code>:
+</p>
+
+<pre>
+$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply foo"</span>
+
+Text -> Text</pre>
+
+<p>
+    It turns out, we can actually render this partially applied template, but only if
+    we <strong>explicitly</strong> supply new delimiters for the result:
+</p>
+
+<pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span> --left <span style="color: #E07B53;">"{{"</span> --right <span style="color: #E07B53;">"}}"</span>
+
+{{ x }}
+
+asdf
+
+Woo hoo! I'm a Text File!
+
+{{ x }}</pre>

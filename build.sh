@@ -1,6 +1,18 @@
 #!/bin/bash
-ltext "src/wrapper.html (src/content.html src/preview.html src/usage.html \
-       src/download.html (src/advanced.html src/typechecking.html src/partial.html \
-       src/debugging.html))" --raw "src/preview.html" --raw "src/usage.html" \
-      --raw "src/download.html"  --raw "src/typechecking.html" --raw "src/partial" \
-      --raw "src/debugging" --raw "src/debugging.html" > index.html
+npx sass src/main.scss main.css && \
+    npx css-minify -f main.css -o ./ && \
+    ltext "src/wrapper.html \
+  (src/content.html \
+    src/content/preview.html \
+    src/content/usage.html \
+    src/content/download.html \
+    (src/content/advanced.html \
+      src/content/advanced/typechecking.html \
+      src/content/advanced/partial.html \
+      src/content/advanced/debugging.html))" \
+          --raw "src/content/preview.html" \
+          --raw "src/content/usage.html" \
+          --raw "src/content/download.html" \
+          --raw "src/content/advanced/typechecking.html" \
+          --raw "src/content/advanced/partial" \
+          --raw "src/content/advanced/debugging" > index.html

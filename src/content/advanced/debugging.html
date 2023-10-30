@@ -1,0 +1,39 @@
+<header>
+    <h2 id="debugging">Debugging</h2>
+</header>
+
+<p>
+    If you toyed around with the <code>apply</code> function from earlier, you
+    may have seen a daunting error:
+</p>
+
+<pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
+[Print Error] Can't print textual data while residually inside an expression:
+Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
+  (Abs "that" (Abs "I" (Lit ["###"])))))))</pre>
+
+<p>
+    This is intended! This makes sure that the templates we render are actually
+    <em>renderable</em>.
+</p>
+
+<p>
+    In laymen's terms, a template can only be rendered if <strong>all</strong>
+    <code>Text</code> data that is concatenated (<code>&lt;&gt;</code>) is at the
+    "top level" - if after reducing our expression, we wind up applying text to
+    an unknown function, or applying unknown input to a file, we can't fully
+    substitute the text, and are left with dangling references to files.
+</p>
+
+<p>
+    We can check the type of these expressions, but we can't render them. This
+    process will improve in the future, but for now just make sure `ltext` is used
+    to concatenate files completely, and not expect partial application to
+    "just work".
+</p>
+
+<p>
+    So, if you ever get this error, you know that there's something you still need
+    to apply before you can fully render your expression.
+</p>
