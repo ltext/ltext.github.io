@@ -75,6 +75,10 @@ main > header {
     }
 }
 
+header a {
+    text-decoration-color: var(--h3-color) !important;
+}
+
 section#preview, section#download {
     article > header {
         text-align: center;
@@ -99,11 +103,25 @@ section#preview, section#download {
     margin-bottom: 0;
 }
 
+@mixin dark-icon {
+    filter: grayscale(100%) brightness(0);
+}
+
+@mixin light-icon {
+    filter: grayscale(100%) brightness(0) invert(1);
+}
+
+img.logo, img.icon {
+    @include dark-icon;
+    @media (prefers-color-scheme: dark) {
+        @include light-icon;
+    }
+}
+
 section#download {
     img.logo {
         width: 3em;
         height: 3em;
-        filter: grayscale(100%) brightness(0);
     }
 
     div.grid > article {

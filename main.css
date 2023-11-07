@@ -72,6 +72,10 @@ main > header > img {
   }
 }
 
+header a {
+  text-decoration-color: var(--h3-color) !important;
+}
+
 section#preview article > header, section#download article > header {
   text-align: center;
 }
@@ -91,10 +95,18 @@ section#preview article > header, section#download article > header {
   }
 }
 
+img.logo, img.icon {
+  filter: grayscale(100%) brightness(0);
+}
+@media (prefers-color-scheme: dark) {
+  img.logo, img.icon {
+    filter: grayscale(100%) brightness(0) invert(1);
+  }
+}
+
 section#download img.logo {
   width: 3em;
   height: 3em;
-  filter: grayscale(100%) brightness(0);
 }
 section#download div.grid > article {
   margin-top: 0;
