@@ -1,5 +1,5 @@
 <header>
-    <h2 id="typechecking">Type Checking</h2>
+    <h3 id="typechecking">Type Checking</h3>
 </header>
 
 <p>
@@ -8,7 +8,7 @@
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"foo"</span>
+$ <span class="cmd">ltext</span> --type <span class="arg">"foo"</span>
 
 Text -> Text</pre>
 
@@ -20,7 +20,7 @@ Text -> Text</pre>
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"\x -> x"</span>
+$ <span class="cmd">ltext</span> --type <span class="arg">"\x -> x"</span>
 
 a0 -> a0</pre>
 
@@ -45,7 +45,7 @@ asdf
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply"</span>
+$ <span class="cmd">ltext</span> --type <span class="arg">"apply"</span>
 
 (a0 -> Text) -> a0 -> Text</pre>
 
