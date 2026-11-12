@@ -9,9 +9,11 @@
 
 <pre>
 $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
-[Print Error] Can't print textual data while residually inside an expression:
-Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
-  (Abs "that" (Abs "I" (Lit ["###"])))))))</pre>
+[Print Error] Can't print textual data while inside an expression:
+
+    f [text from "bar"]
+
+...cannot be rendered to a file.</pre>
 
 <p>
     This is intended! This makes sure that the templates we render are actually
@@ -19,21 +21,22 @@ Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
 </p>
 
 <p>
-    In laymen's terms, a template can only be rendered if <strong>all</strong>
-    <code>Text</code> data that is concatenated (<code>&lt;&gt;</code>) is at the
-    "top level" - if after reducing our expression, we wind up applying text to
-    an unknown function, or applying unknown input to a file, we can't fully
-    substitute the text, and are left with dangling references to files.
+    In layman's terms, a template can only be rendered if <strong>all</strong> of
+    its text ends up concatenated at the "top level". Here, after reducing the
+    expression, the text of <code>bar</code> is still waiting to be passed to
+    <code>f</code> - a function we don't know yet - so there's no way to write it
+    out as a file.
 </p>
 
 <p>
-    We can check the type of these expressions, but we can't render them. This
-    process will improve in the future, but for now just make sure `ltext` is used
-    to concatenate files completely, and not expect partial application to
-    "just work".
+    We can still check the type of such an expression with <code>--type</code>,
+    but to render it, we have to apply whatever is still missing first.
 </p>
 
 <p>
-    So, if you ever get this error, you know that there's something you still need
-    to apply before you can fully render your expression.
+    Other mistakes are caught before anything is rendered, too. Applying a file to
+    the wrong kind of argument is a type error, a misspelled file name is an
+    unbound variable, and a malformed expression - in a file's header or on the
+    command line - is a parse error that names the file, line and expression at
+    fault. Add <code>--verbose</code> to see how λtext reads each file.
 </p>

@@ -18,7 +18,16 @@ Text -> Text</pre>
 
 <p>
     It turns out, we can actually render this partially applied template, but only if
-    we <strong>explicitly</strong> supply new delimiters for the result:
+    we <strong>explicitly</strong> supply new delimiters for the result's header
+    and parameters - without them, λtext refuses:
+</p>
+
+<pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span>
+[Print Error] Can't render a document with arity without explicit --left and --right delimiters</pre>
+
+<p>
+    With delimiters, the result is itself a template, ready to be applied later:
 </p>
 
 <pre>

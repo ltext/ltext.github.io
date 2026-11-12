@@ -9,10 +9,9 @@
   "author": "Athan Clark <athan.clark@gmail.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@picocss/pico": "^1.5.10"
+    "@picocss/pico": "^2.1.1"
   },
   "devDependencies": {
-    "css-minify": "^2.0.0",
-    "sass": "^1.69.5"
+    "sass": "^1.108.2"
   }
 }
