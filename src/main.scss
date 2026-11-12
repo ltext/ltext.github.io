@@ -63,9 +63,6 @@ article {
     }
     &:first-child {
         margin-top: 0;
-        @media (min-width: 992px) {
-            margin-top: var(--pico-block-spacing-vertical);
-        }
     }
     &:last-child {
         margin-bottom: var(--pico-block-spacing-vertical);
@@ -95,9 +92,6 @@ main > header {
     }
 
     margin-bottom: var(--pico-block-spacing-vertical);
-    @media (min-width: 992px) {
-        margin-bottom: 0;
-    }
 }
 
 header a {
@@ -161,9 +155,13 @@ section#download {
         margin-top: calc(var(--pico-block-spacing-vertical) * 0.5);
     }
 
-    h3 {
+    & > h3 {
         text-align: center;
         margin-top: var(--pico-block-spacing-vertical);
+    }
+
+    article > header h3 {
+        margin-top: calc(var(--pico-spacing) * 0.25);
     }
 
     div.grid > article {
@@ -206,6 +204,22 @@ section#download {
 section#advanced {
     & > header > p {
         margin-top: calc(var(--pico-block-spacing-vertical)*0.5);
+    }
+}
+
+// Terminal examples: the command and its arguments. The light-mode shades
+// meet WCAG AA contrast (4.5:1) on Pico's code background.
+pre .cmd {
+    color: #00756a;
+    @media (prefers-color-scheme: dark) {
+        color: #00ad9c;
+    }
+}
+
+pre .arg {
+    color: #ad4519;
+    @media (prefers-color-scheme: dark) {
+        color: #e07b53;
     }
 }
 

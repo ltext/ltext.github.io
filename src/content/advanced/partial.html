@@ -1,5 +1,5 @@
 <header>
-    <h2 id="partial">Partial Application</h2>
+    <h3 id="partial">Partial Application</h3>
 </header>
 
 <p>
@@ -12,7 +12,7 @@
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply foo"</span>
+$ <span class="cmd">ltext</span> --type <span class="arg">"apply foo"</span>
 
 Text -> Text</pre>
 
@@ -23,7 +23,7 @@ Text -> Text</pre>
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span>
+$ <span class="cmd">ltext</span> <span class="arg">"apply foo"</span>
 [Print Error] Can't render a document with arity without explicit --left and --right delimiters</pre>
 
 <p>
@@ -31,7 +31,7 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"appl
 </p>
 
 <pre>
-$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span> --left <span style="color: #E07B53;">"{{"</span> --right <span style="color: #E07B53;">"}}"</span>
+$ <span class="cmd">ltext</span> <span class="arg">"apply foo"</span> --left <span class="arg">"{{"</span> --right <span class="arg">"}}"</span>
 
 {{ x }}
 
