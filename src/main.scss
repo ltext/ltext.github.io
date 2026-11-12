@@ -1,3 +1,28 @@
+// Pico CSS v2, without the modules this page doesn't use.
+@use "@picocss/pico/scss/pico" with (
+    $modules: (
+        "layout/overflow-auto": false,
+        "content/button": false,
+        "content/table": false,
+        "content/figure": false,
+        "forms/basics": false,
+        "forms/checkbox-radio-switch": false,
+        "forms/input-color": false,
+        "forms/input-date": false,
+        "forms/input-file": false,
+        "forms/input-range": false,
+        "forms/input-search": false,
+        "components/accordion": false,
+        "components/dropdown": false,
+        "components/group": false,
+        "components/loading": false,
+        "components/modal": false,
+        "components/nav": false,
+        "components/progress": false,
+        "components/tooltip": false,
+    )
+);
+
 /* body { */
 /*   background: #002B41; */
 /* } */
@@ -9,11 +34,11 @@ a {
 }
 
 article {
-    padding-bottom: calc(var(--block-spacing-vertical)*0.5) !important;
+    padding-bottom: calc(var(--pico-block-spacing-vertical)*0.5) !important;
 
     & > header {
-        padding: calc(var(--block-spacing-vertical)*0.3) var(--block-spacing-horizontal) !important;
-        margin-bottom: calc(var(--block-spacing-vertical)*0.5) !important;
+        padding: calc(var(--pico-block-spacing-vertical)*0.3) var(--pico-block-spacing-horizontal) !important;
+        margin-bottom: calc(var(--pico-block-spacing-vertical)*0.5) !important;
 
         h2, h3 {
             margin-bottom: 0;
@@ -34,21 +59,21 @@ article {
 .grid > article {
     margin-bottom: 0;
     @media (min-width: 992px) {
-        margin-bottom: var(--block-spacing-vertical);
+        margin-bottom: var(--pico-block-spacing-vertical);
     }
     &:first-child {
         margin-top: 0;
         @media (min-width: 992px) {
-            margin-top: var(--block-spacing-vertical);
+            margin-top: var(--pico-block-spacing-vertical);
         }
     }
     &:last-child {
-        margin-bottom: var(--block-spacing-vertical);
+        margin-bottom: var(--pico-block-spacing-vertical);
     }
 }
 
 pre {
-    padding: var(--spacing);
+    padding: var(--pico-spacing);
 }
 
 section > header > h2 {
@@ -69,14 +94,14 @@ main > header {
         max-width: 8em;
     }
 
-    margin-bottom: var(--block-spacing-vertical);
+    margin-bottom: var(--pico-block-spacing-vertical);
     @media (min-width: 992px) {
         margin-bottom: 0;
     }
 }
 
 header a {
-    text-decoration-color: var(--h3-color) !important;
+    text-decoration-color: var(--pico-h3-color) !important;
 }
 
 section#preview, section#download {
@@ -127,26 +152,65 @@ section#download {
     div.grid > article {
         margin-top: 0;
         @media (min-width: 992px) {
-            margin-top: var(--block-spacing-vertical);
+            margin-top: var(--pico-block-spacing-vertical);
         }
-        margin-bottom: calc(var(--block-spacing-vertical)*0.5);
-        text-align: center;
+        margin-bottom: calc(var(--pico-block-spacing-vertical)*0.5);
+    }
+
+    & > header > p {
+        margin-top: calc(var(--pico-block-spacing-vertical) * 0.5);
     }
 
     h3 {
         text-align: center;
+        margin-top: var(--pico-block-spacing-vertical);
     }
 
-    ol {
+    div.grid > article {
+        text-align: left;
+
+        & > header {
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: var(--pico-spacing) 0 calc(var(--pico-spacing) * 0.5);
+        }
+
+        ul {
+            padding-left: 1.2em;
+        }
+
+        pre {
+            margin-bottom: var(--pico-spacing);
+            // Long commands wrap instead of being cut off in narrow cards.
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+    }
+
+    .centered {
         width: fit-content;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    pre.centered {
+        text-align: left;
     }
 }
 
 section#advanced {
     & > header > p {
-        margin-top: calc(var(--block-spacing-vertical)*0.5);
+        margin-top: calc(var(--pico-block-spacing-vertical)*0.5);
     }
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 div.divider {
@@ -159,23 +223,6 @@ div.divider {
 }
 
 
-@import "../node_modules/@picocss/pico/scss/variables";
-@import "../node_modules/@picocss/pico/scss/themes/default";
-
-@import "../node_modules/@picocss/pico/scss/layout/document";
-@import "../node_modules/@picocss/pico/scss/layout/sectioning";
-@import "../node_modules/@picocss/pico/scss/layout/container";
-@import "../node_modules/@picocss/pico/scss/layout/section";
-@import "../node_modules/@picocss/pico/scss/layout/grid";
-
-@import "../node_modules/@picocss/pico/scss/content/typography";
-@import "../node_modules/@picocss/pico/scss/content/embedded";
-@import "../node_modules/@picocss/pico/scss/content/code";
-@import "../node_modules/@picocss/pico/scss/content/miscs";
-
-@import "../node_modules/@picocss/pico/scss/components/card";
-
-
 :root {
-    --grid-spacing-vertical: var(--spacing);
+    --pico-grid-row-gap: var(--pico-spacing);
 }

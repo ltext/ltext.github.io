@@ -68,10 +68,10 @@
         </h3>
     </header>
 
-    <p>With <a href="http://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
+    <p>With <a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank">Lambda Calculus</a>
         as the underlying engine, λtext features both <strong>generality</strong>
         and <strong>precision</strong> - its
-        <a href="http://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
+        <a href="https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system" target="_blank">Hindley-Milner</a>
         type system gives us both <em>polymorphism</em> and <em>correctness</em>;
         generic templates that seamlessly fit.
     </p>
@@ -79,7 +79,7 @@
 
 <article>
     <header>
-        <a href="github.com/ltext/ltext" target="__blank">
+        <a href="https://github.com/ltext/ltext" target="_blank">
             <img src="img/mark-github.svg" alt="github icon" class="icon" />
             <h3>
                 Open Source
@@ -87,11 +87,11 @@
         </a>
     </header>
 
-    <p>λtext is <a href="http://opensource.org/licenses/BSD-2-Clause" target="_blank">BSD Licenced</a> - you are free
-        to do what you want with the project. It's written in the advanced
-        programming language <a href="http://haskell.org" target="_blank">Haskell</a>,
+    <p>λtext is <a href="https://opensource.org/license/bsd-3-clause" target="_blank">BSD licensed</a> - you are free
+        to do what you want with the project. It's a single, dependency-free
+        binary written in <a href="https://www.rust-lang.org" target="_blank">Rust</a>,
         with its code available on
-        <a href="https://github.com/ltext/ltext" target="_blank">github</a>.
+        <a href="https://github.com/ltext/ltext" target="_blank">GitHub</a>.
     </p>
 </article>
 </section>
@@ -124,7 +124,7 @@ Woo hoo! I'm a Text File!</pre>
         on the first line, inside <strong>delimiters</strong>.
         Those parameters are later used within
         the same delimiters. We are free to choose whatever syntax we
-        want - Jade-style delimiters a 'la <code>{{ ... }}</code>, Html-friendly
+        want - Mustache-style delimiters like <code>{{ ... }}</code>, Html-friendly
         delimiters via comments <code>&lt;!-- --></code>, etc. Here's an example
         <em>parametric</em> <code>foo</code>:
         </p>
@@ -168,6 +168,7 @@ $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"foo 
 
 Woo hoo! I'm a Text File!
 
+
 Here's some content that I /really/
 want inside `foo`!</pre>
         <p>The result expression / file text gets pumped out <code>stdout</code>.</p>
@@ -180,6 +181,12 @@ want inside `foo`!</pre>
     <h2>
         Get λtext
     </h2>
+    <p>
+        Latest release:
+        <a class="ltext-release" href="https://github.com/ltext/ltext/releases/tag/v0.2.1">v<span class="ltext-version">0.2.1</span></a>
+        &middot;
+        <a href="https://github.com/ltext/ltext/releases">all releases and checksums</a>
+    </p>
 </header>
 
 <div class="grid">
@@ -187,47 +194,140 @@ want inside `foo`!</pre>
         <header>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg" alt="linux logo" class="logo" />
         </header>
-        <!-- linux downloads -->
-        <a href="https://snapcraft.io/ltext">
-            <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-white.svg" />
-        </a>
+        <h4>Package managers</h4>
+        <p>
+            Homebrew<br />
+            <code>brew install ltext/tap/ltext</code>
+        </p>
+        <p>
+            Arch Linux (<a href="https://aur.archlinux.org/packages/ltext-bin">AUR</a>)<br />
+            <code>yay -S ltext-bin</code>
+        </p>
+        <h4>Downloads</h4>
+        <ul>
+            <li>Debian, Ubuntu:
+                <a data-asset="_amd64.deb" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext_0.2.1-1_amd64.deb">.deb x86_64</a> &middot;
+                <a data-asset="_arm64.deb" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext_0.2.1-1_arm64.deb">arm64</a></li>
+            <li>Fedora, RHEL, openSUSE:
+                <a data-asset=".x86_64.rpm" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-1.x86_64.rpm">.rpm x86_64</a> &middot;
+                <a data-asset=".aarch64.rpm" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-1.aarch64.rpm">aarch64</a></li>
+            <li>Any distribution (static binary):
+                <a data-asset="-x86_64-unknown-linux-musl.tar.gz" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-x86_64-unknown-linux-musl.tar.gz">x86_64</a> &middot;
+                <a data-asset="-aarch64-unknown-linux-musl.tar.gz" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-aarch64-unknown-linux-musl.tar.gz">aarch64</a></li>
+        </ul>
     </article>
 
     <article>
         <header>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="apple logo" class="logo" />
         </header>
-        <!-- osx downloads -->
-        <em>None yet - <a href="#build-from-source">Build From Source</a></em>
+        <h4>Package managers</h4>
+        <p>
+            Homebrew<br />
+            <code>brew install ltext/tap/ltext</code>
+        </p>
+        <h4>Downloads</h4>
+        <ul>
+            <li><a data-asset="-aarch64-apple-darwin.tar.gz" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-aarch64-apple-darwin.tar.gz">Apple silicon</a></li>
+            <li><a data-asset="-x86_64-apple-darwin.tar.gz" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-x86_64-apple-darwin.tar.gz">Intel</a></li>
+        </ul>
+        <p><small>
+            macOS may quarantine a downloaded binary;
+            <code>xattr -d com.apple.quarantine ltext</code> clears that.
+        </small></p>
     </article>
 
     <article>
         <header>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="windows logo" class="logo" />
         </header>
-        <!-- windows downloads -->
-        <em>None yet - <a href="#build-from-source">Build From Source</a></em>
+        <h4>Downloads</h4>
+        <ul>
+            <li>x64:
+                <a data-asset="-x86_64-pc-windows-msvc.exe" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-x86_64-pc-windows-msvc.exe">ltext.exe</a> &middot;
+                <a data-asset="-x86_64-pc-windows-msvc.zip" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-x86_64-pc-windows-msvc.zip">.zip</a></li>
+            <li>ARM64:
+                <a data-asset="-aarch64-pc-windows-msvc.exe" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-aarch64-pc-windows-msvc.exe">ltext.exe</a> &middot;
+                <a data-asset="-aarch64-pc-windows-msvc.zip" href="https://github.com/ltext/ltext/releases/download/v0.2.1/ltext-0.2.1-aarch64-pc-windows-msvc.zip">.zip</a></li>
+        </ul>
+        <p><small>
+            A single standalone executable: rename it to <code>ltext.exe</code>
+            and put it somewhere on your <code>PATH</code>.
+        </small></p>
     </article>
 </div>
 
 <div class="grid divider">
     <hr />
     <div>
-        or
+        or, on any platform
     </div>
     <hr />
 </div>
 
-<h3>Build From Source</h3>
+<div class="grid">
+    <article>
+        <header>
+            <h3>Cargo</h3>
+        </header>
+        <p>From <a href="https://crates.io/crates/ltext">crates.io</a>:</p>
+        <pre>cargo install ltext</pre>
+        <p>or, with <a href="https://github.com/cargo-bins/cargo-binstall">cargo-binstall</a>, the prebuilt binary:</p>
+        <pre>cargo binstall ltext</pre>
+    </article>
 
-<ol>
-    <li>
-        Get <a href="https://github.com/commercialhaskell/stack#how-to-install">Stack</a>
-    </li>
-    <li>
-        <code>stack install ltext</code>
-    </li>
-</ol>
+    <article>
+        <header>
+            <h3>Nix</h3>
+        </header>
+        <p>Run it straight from the flake:</p>
+        <pre>nix run github:ltext/ltext -- --help</pre>
+        <p>or install it into your profile:</p>
+        <pre>nix profile add github:ltext/ltext</pre>
+    </article>
+
+    <article>
+        <header>
+            <h3>Container</h3>
+        </header>
+        <p>A ~1 MB image (amd64, arm64) that renders files in the current directory:</p>
+        <pre>docker run --rm -v "$PWD:/work" ghcr.io/ltext/ltext "foo bar"</pre>
+        <p>or copy it into your own image:</p>
+        <pre>COPY <span class="nowrap">--from=ghcr.io/ltext/ltext</span> /usr/local/bin/ltext /usr/local/bin/</pre>
+    </article>
+</div>
+
+<h3 id="build-from-source">Build From Source</h3>
+
+<p class="centered">
+    λtext needs <a href="https://rustup.rs">Rust</a> 1.85 or newer.
+</p>
+<pre class="centered">git clone https://github.com/ltext/ltext
+cd ltext
+cargo install --path .</pre>
+
+<script>
+    // The links above point at v0.2.1; swap in the latest release's assets.
+    (async () => {
+        try {
+            const response = await fetch("https://api.github.com/repos/ltext/ltext/releases/latest");
+            if (!response.ok) return;
+            const release = await response.json();
+            for (const link of document.querySelectorAll("a[data-asset]")) {
+                const asset = release.assets.find((a) => a.name.endsWith(link.dataset.asset));
+                if (asset) link.href = asset.browser_download_url;
+            }
+            for (const el of document.querySelectorAll(".ltext-version")) {
+                el.textContent = release.tag_name.replace(/^v/, "");
+            }
+            for (const link of document.querySelectorAll("a.ltext-release")) {
+                link.href = release.html_url;
+            }
+        } catch (e) {
+            // Offline or rate-limited: the v0.2.1 links still work.
+        }
+    })();
+</script>
 </section>
 
 <section id="advanced">
@@ -254,7 +354,7 @@ want inside `foo`!</pre>
 <pre>
 $ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"foo"</span>
 
-foo :: Text -> Text</pre>
+Text -> Text</pre>
 
 <p>
     You can read this as "foo takes in Text and returns Text", or "foo is a
@@ -291,7 +391,7 @@ asdf
 <pre>
 $ <span style="color: #00AD9C;">ltext</span> --type <span style="color: #E07B53;">"apply"</span>
 
-(a1 -> Text) -> a1 -> Text</pre>
+(a0 -> Text) -> a0 -> Text</pre>
 
 <p>
     Meaning that <code>x</code> can be content of <em>any</em> type, so long
@@ -320,7 +420,16 @@ Text -> Text</pre>
 
 <p>
     It turns out, we can actually render this partially applied template, but only if
-    we <strong>explicitly</strong> supply new delimiters for the result:
+    we <strong>explicitly</strong> supply new delimiters for the result's header
+    and parameters - without them, λtext refuses:
+</p>
+
+<pre>
+$ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"apply foo"</span>
+[Print Error] Can't render a document with arity without explicit --left and --right delimiters</pre>
+
+<p>
+    With delimiters, the result is itself a template, ready to be applied later:
 </p>
 
 <pre>
@@ -347,9 +456,11 @@ Woo hoo! I'm a Text File!
 
 <pre>
 $ <span style="color: #00AD9C;">ltext</span> <span style="color: #E07B53;">"\f -> apply f bar"</span>
-[Print Error] Can't print textual data while residually inside an expression:
-Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
-  (Abs "that" (Abs "I" (Lit ["###"])))))))</pre>
+[Print Error] Can't print textual data while inside an expression:
+
+    f [text from "bar"]
+
+...cannot be rendered to a file.</pre>
 
 <p>
     This is intended! This makes sure that the templates we render are actually
@@ -357,29 +468,30 @@ Abs "f" (Concat (Lit ["###"]) (App (Var "f") (Abs "some" (Abs "content"
 </p>
 
 <p>
-    In laymen's terms, a template can only be rendered if <strong>all</strong>
-    <code>Text</code> data that is concatenated (<code>&lt;&gt;</code>) is at the
-    "top level" - if after reducing our expression, we wind up applying text to
-    an unknown function, or applying unknown input to a file, we can't fully
-    substitute the text, and are left with dangling references to files.
+    In layman's terms, a template can only be rendered if <strong>all</strong> of
+    its text ends up concatenated at the "top level". Here, after reducing the
+    expression, the text of <code>bar</code> is still waiting to be passed to
+    <code>f</code> - a function we don't know yet - so there's no way to write it
+    out as a file.
 </p>
 
 <p>
-    We can check the type of these expressions, but we can't render them. This
-    process will improve in the future, but for now just make sure `ltext` is used
-    to concatenate files completely, and not expect partial application to
-    "just work".
+    We can still check the type of such an expression with <code>--type</code>,
+    but to render it, we have to apply whatever is still missing first.
 </p>
 
 <p>
-    So, if you ever get this error, you know that there's something you still need
-    to apply before you can fully render your expression.
+    Other mistakes are caught before anything is rendered, too. Applying a file to
+    the wrong kind of argument is a type error, a misspelled file name is an
+    unbound variable, and a malformed expression - in a file's header or on the
+    command line - is a parse error that names the file, line and expression at
+    fault. Add <code>--verbose</code> to see how λtext reads each file.
 </p>
 </article>
 </section>
 
 <footer>
-    Copyright &copy Athan Clark; 2014 - 2023 released under the
+    Copyright &copy Athan Clark; 2014 - 2026, released under the
     <a href="https://github.com/ltext/ltext/blob/master/LICENSE" target="_blank">BSD 3-Clause License</a>.
 </footer>
     </main>
